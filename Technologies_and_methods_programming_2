@@ -1,7 +1,7 @@
+Lection №1
 Python froms
-Forms
 
-Modal
+______Modal_________
 !*python_file*!
 from tkinter import *
 def click1():
@@ -12,5 +12,61 @@ def click1():
 form1 = Tk()
 Button(text = 'Modal", command = click1) .place(x=5,y=5)
 form1.mainloop()
+!*python_file*!
+
+______Nomodal___________
+!*python_file*!
+from tkinter import *
+def click1() :
+  global fView
+  def delForm() :
+    global fView
+    fView = False
+    form.destroy()
+  if not (fView):
+    form = Toplevel(form1)
+    form.protocol("WM_DELETE_WINDOW", delForm)
+    form.focus_set()
+    fView = True
+form1 = Tk()
+fView = False
+Button(text= 'Norma', command = click1) .place(x=5, y=5)
+form1.mainloop()
+!*python_file*!
+
+______Centering_________
+!*python_file*!
+W, H = 400, 200
+L, T = (form1.winfo_screenwidth()-W) //2,
+       (form1.winfo_screenheight()-H) //2
+form1.geometry(f"{W}x{H} + {L} + {T}")
+!*python_file*!
+
+______Full_Screen_________
+!*python_file*!
+W,H = form1.winfo_screenwidth(),
+      form1.winfo_screenheight()
+form1.geometry(f"{W}x{H}+0+0")
+!*python_file*!
+
+________Key&Mouse_______
+!*python_file*!
+from tkinter import *
+def keyPass(k):
+  print("keyPress->",k,keysym,k.keycode)
+  if k.keysym == 'Escape': form1.quit()
+def mouseMove(m):
+  print("mouseMove->",m.x,m.y)
+def mousePress(mouse):
+  print("mousePress->", mouse.x, mouse.y)
+
+form1 = Tk()
+form1.bind("<KeyPress>", keyPress)
+form1.bind("<B1-Motion>", mouseMove)  #B1 - левая кнопка, B2 - колесико, B3 - правая кнопка на мышке
+form1.bind("<Button-1>", mousePress)  #левое нажатие мышки
+
+
+
+
 
 
