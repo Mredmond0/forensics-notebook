@@ -1,0 +1,16 @@
+Python froms
+Forms
+
+Modal
+!*python_file*!
+from tkinter import *
+def click1():
+  form = Toplevel(form1)
+  form.grab_set()
+  form.focus_set()
+  form.wait_window()
+form1 = Tk()
+Button(text = 'Modal", command = click1) .place(x=5,y=5)
+form1.mainloop()
+
+
