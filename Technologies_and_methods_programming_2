@@ -64,6 +64,9 @@ form1 = Tk()
 form1.bind("<KeyPress>", keyPress)
 form1.bind("<B1-Motion>", mouseMove)  #B1 - левая кнопка, B2 - колесико, B3 - правая кнопка на мышке
 form1.bind("<Button-1>", mousePress)  #левое нажатие мышки
+form1.bind("<Escape>", lambda w:w.widget.quit())
+form1.mainloop()
+!*python_file*!
 
 
 
